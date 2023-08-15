@@ -29,6 +29,7 @@ env = environ.Env(
     DATABASE_PASSWORD=(str, ""),
     DATABASE_HOST=(str, ""),
     DATABASE_PORT=(int, 5432),
+    SECRET_KEY=(str,""),
 )
 
 environ.Env.read_env()
@@ -61,7 +62,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # local
     "accounts",
-    "things",
+    "cookie_stands",
 ]
 
 MIDDLEWARE = [
@@ -175,9 +176,6 @@ CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
 CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
 
 # TAILWIND
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
 
 # AUTH
 LOGIN_REDIRECT_URL = "home"
